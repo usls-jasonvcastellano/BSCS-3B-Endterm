@@ -16,7 +16,7 @@
 
     <!-- Navbar Code -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">AranteIradJoseph</a>
+        <a class="navbar-brand" href="#">Arante Irad</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +38,11 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0 ml-auto">
+            <!-- Search Bar -->
+            <!-- <form class="form-inline my-2 my-lg-0 ml-auto">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
 
