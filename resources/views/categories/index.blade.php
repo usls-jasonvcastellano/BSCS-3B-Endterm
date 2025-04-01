@@ -1,6 +1,6 @@
 <!-- content.blade.php -->
 @extends('template.main')
-
+@section('title', 'Categories/Endterm')
 @section('content')
 
 <!-- rounded rectangle style -->
@@ -12,6 +12,10 @@
         color: #F5F4F3;
     }
 </style>
+
+<div class="mt-3">
+    <a href="/categories/create" class="btn btn-success">Add Category</a>
+</div>
 
 <!-- Header Row -->
 <div class="row d-flex justify-content-center">
@@ -30,7 +34,19 @@
     <tbody>
         @foreach ($categories as $category)
         <tr>
+            <td>{{ $category->id }}</td>
             <td>{{$category->category_name}}</td>
+            <td>
+                <!-- Edit Button Placeholder -->
+                <button class="btn btn-primary btn-sm" disabled>Edit</button>
+
+                <!-- Delete Button -->
+                <form action="/categories/{{ $category->id }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

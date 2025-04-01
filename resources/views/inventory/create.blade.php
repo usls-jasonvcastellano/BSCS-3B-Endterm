@@ -1,96 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory Form</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: url(https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      .container-box {
-        background-color: #fff;
-        padding: 30px;
+<!-- content.blade.php -->
+@extends('template.main')
+@section('title', 'Inventory/Endterm/create')
+@section('content')
+
+<!-- rounded rectangle style -->
+<style>
+    .rounded-header {
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        width: 350px;
-        font-family: "Poppins", sans-serif;
-      }
-      .btn-back {
-        background-color: #3a2d1c;
-        color: white;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-      }
-      .btn-submit {
-        background-color: #3a2d1c;
-        color: white;
-        border: none;
+        background-color: #351F0C;
         padding: 10px;
-        width: 100%;
-        border-radius: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-box">
-      <!-- Back Button -->
-      <button class="btn-back mb-3">Back</button>
+        color: #F5F4F3;
+    }
+</style>
 
-      <!-- Category Dropdown -->
-      <div class="mb-3">
-        <label class="form-label">Categories:</label>
-        <select class="form-select">
-          <option>Select Category</option>
-          <option>Textbooks</option>
-          <option>Novels</option>
-          <option>Magazines</option>
-        </select>
-      </div>
+        <div class="border p-4 rounded">
+            <form action="/inventory/store" method="POST">
+                @csrf <!-- CSRF token for security -->
+                <div class="mb-3">
+                <label for="category_id" class="form-label">Category</label>
+                      <select class="form-control" id="category_id" name="category_id" required>
+                          <option value="">Select a category</option>
+                          @foreach ($categories as $category)
+                              <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                          @endforeach
+                      </select>
 
-      <!-- Item Name -->
-      <div class="mb-3">
-        <label class="form-label">Item Name:</label>
-        <input type="text" class="form-control" placeholder="Enter item name" />
-      </div>
-
-      <!-- Price -->
-      <div class="mb-3">
-        <label class="form-label">Price:</label>
-        <input type="text" class="form-control" placeholder="Enter price" />
-      </div>
-
-      <!-- Quantity -->
-      <div class="mb-3">
-        <label class="form-label">Qty:</label>
-        <input
-          type="number"
-          class="form-control"
-          placeholder="Enter quantity"
-        />
-      </div>
-
-      <!-- Submit Button -->
-      <button class="btn-submit">Submit</button>
+                    <label for="item_name" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter Item name" required>
+                    
+                    <label for="price" class="form-label">Price</label>
+                    <input type="decimal" class="form-control" id="price" name="price" placeholder="Enter Price" required>
+                    
+                    <label for="qty" class="form-label">Quantity</label>
+                    <input type="integer" class="form-control" id="qty" name="qty" placeholder="Enter Quantity" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+
+@endsection

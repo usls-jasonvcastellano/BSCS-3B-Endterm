@@ -1,6 +1,6 @@
 <!-- content.blade.php -->
 @extends('template.main')
-
+@section('title', 'Inventory/Endterm')
 @section('content')
 
 <style>
@@ -11,6 +11,10 @@
         color: #F5F4F3;
     }
 </style>
+
+<div class="mt-3">
+    <a href="/inventory/create" class="btn btn-success">Add Item</a>
+</div>
 
 <!-- Header Row -->
 <div class="row d-flex justify-content-center">
@@ -29,6 +33,7 @@
             <th>Category</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +44,15 @@
             <td>{{$item->category->category_name}}</td> 
             <td>${{ number_format($item->price, 2) }}</td>
             <td>{{$item->qty}}</td>
+            <td>${{ number_format($item->total, 2) }}</td> <!-- Using computed attribute -->
+            <td>
+                <button class="btn btn-primary btn-sm" disabled>Edit</button>
+                <form action="/inventory/{{ $item->id }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

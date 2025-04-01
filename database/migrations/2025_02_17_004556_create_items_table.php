@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            
             $table->unsignedBigInteger('category_id')->index(); // Foreign key to categories
             $table->string('item_name');
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 8);
             $table->integer('qty');
             $table->timestamps();
 
