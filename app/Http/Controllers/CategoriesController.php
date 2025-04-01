@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category; // Import the Category model
 
 class CategoriesController extends Controller
 {
     public function index(){
-        return view("categories.index");
+        $categories = Category::all(); // Fetch all categories
+        return view("categories.index", compact('categories'));
     }
 
     public function create(){
@@ -16,13 +18,25 @@ class CategoriesController extends Controller
 
     public function store(Request $request){
 
-        Category::create([
-            'category name' => $request->input('category_name'),
-            'category name' => $request->input('description')
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
         ]);
 
-        return redirect()->to("/categories");
+        // Create new cate
+        Category::create([
+            'category_name' => $request->input('category_name'),
+            'description' => $request->input('description'),
+        ]);
 
-        //  dd($request->input('category_name'));
+        // Redirect back to /categories
+        return redirect()->to("/categories")->with('success', 'Category added');
+    }
+
+    public function destroy($id)
+    {
+        $category = Category::findOrFail($id); // Find category ID
+        $category->delete(); // Delete category
+        return redirect('/categories')->with('success', 'Category deleted');
     }
 }

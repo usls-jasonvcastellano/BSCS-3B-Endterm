@@ -18,16 +18,34 @@
     <div class="container mt-4">
         <div class="table-responsive" role="region" tabindex="0">
             <table class="table table-striped table-bordered">
-            <h1>Laravel Features</h1>
+            <h1>Category Table</h1>
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
                         <th>Category Name</th>
                         <th>Description</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Insert Table -->
+                    @foreach($categories as $category)
+                        <tr>
+                            <td>{{ $category->id }}</td>
+                            <td>{{ $category->category_name }}</td>
+                            <td>{{ $category->description }}</td>
+                            <td>
+                                <!-- Edit Button Placeholder -->
+                                <button class="btn btn-primary btn-sm" disabled>Edit</button>
+
+                                <!-- Delete Button -->
+                                <form action="/categories/{{ $category->id }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
                 <caption>©2025 Web Development Technologies - 3.3.2 Lab. Activity: Saving Categories and Items</caption>
             </table>

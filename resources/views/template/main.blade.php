@@ -16,7 +16,7 @@
 
     <!-- Navbar Code -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Arante Irad</a>
+        <a class="navbar-brand font-weight-bold fs-4 text-dark me-3" href="#">Arante</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,24 +25,21 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <!-- Midterm Button -->
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                   <!-- <a class="nav-link" href="{{ url('/inventory') }}">Inventory <span class="sr-only">(current)</span></a> -->
+                    <a class="nav-link {{ request()->is('AranteIradJoseph') ? 'active' : '' }}" href="{{ url('/AranteIradJoseph') }}">Midterm</a>
                 </li>
+
+                <!-- Categories Button -->
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                    <!-- <a class="nav-link" href="{{ url('/categories') }}">Categories</a> -->
+                    <a class="nav-link {{ request()->is('categories*') ? 'active' : '' }}" href="{{ url('/categories') }}">Categories</a>
                 </li>
+
+                <!-- Items Button -->
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link {{ request()->is('items*') ? 'active' : '' }}" href="{{ url('/items') }}">Items</a>
                 </li>
             </ul>
-
-            <!-- Search Bar -->
-            <!-- <form class="form-inline my-2 my-lg-0 ml-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> -->
         </div>
     </nav>
 

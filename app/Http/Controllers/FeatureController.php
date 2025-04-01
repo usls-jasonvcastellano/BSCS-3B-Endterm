@@ -10,7 +10,7 @@ class FeatureController extends Controller
     public function index(){
             $feature = features::all();
 
-        return view("features.index", ['feature' => $feature]); 
+        return view("features.index", ['feature' => $feature]);
     }
     
 }

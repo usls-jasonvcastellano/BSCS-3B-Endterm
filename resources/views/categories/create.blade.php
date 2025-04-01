@@ -13,14 +13,15 @@
 <body>
     <div class="container mt-5">
         <div class="border p-4 rounded">
-            <form>
+            <form action="/categories/store" method="POST">
+                @csrf <!-- CSRF token for security -->
                 <div class="mb-3">
-                    <label for="name" class="form-label">Category Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter Category name">
+                    <label for="category_name" class="form-label">Category Name</label>
+                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Category name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Description</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter Description">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
