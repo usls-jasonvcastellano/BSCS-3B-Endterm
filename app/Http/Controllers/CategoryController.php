@@ -18,11 +18,13 @@ class CategoryController extends Controller
 
         $request->validate([
             'category_name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:500',
         ]);
 
         // Create new cate
         Category::create([
             'category_name' => $request->input('category_name'),
+            'description' => $request->input('description'),
         ]);
 
         // Redirect back to /categories

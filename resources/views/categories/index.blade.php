@@ -28,7 +28,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Title</th>
+            <th>ID</th>    
+            <th>Category</th>
+            <th>Description</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +38,7 @@
         <tr>
             <td>{{ $category->id }}</td>
             <td>{{$category->category_name}}</td>
+            <td>{{$category->description}}</td>
             <td>
                 <!-- Edit Button Placeholder -->
                 <button class="btn btn-primary btn-sm" disabled>Edit</button>

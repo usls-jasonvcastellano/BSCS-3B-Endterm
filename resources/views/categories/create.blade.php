@@ -19,6 +19,8 @@
                 <div class="mb-3">
                     <label for="category_name" class="form-label">Category Name</label>
                     <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Category name" required>
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

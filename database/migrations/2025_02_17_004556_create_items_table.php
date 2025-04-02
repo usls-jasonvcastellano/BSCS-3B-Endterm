@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id')->index(); // Foreign key to categories
             $table->string('item_name');
-            $table->decimal('price', 8);
+            $table->decimal('price', 8, 2);
             $table->integer('qty');
             $table->timestamps();
 
