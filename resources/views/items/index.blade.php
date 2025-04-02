@@ -1,29 +1,33 @@
 @extends('template.main')
 
-@section('title', 'Categories Table')
+@section('title', 'Item Table')
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">Categories List</h2>
+    <h2 class="mb-4">Item List</h2>
     <div>
-    <a href="/categories/create" class="btn btn-primary mb-1">Add Category</a>
+        <a href="/items/create" class="btn btn-primary mb-1">Add Item</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
-                    <th>Category Name</th>
-                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $category)
+                @foreach($items as $item)
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->category_name }}</td>
-                        <td>{{ $category->description }}</td>
+                        <td>{{ $item->category->category_name }}</td>
+                        <td>{{ $item->item_name }}</td>
+                        <td>{{ $item->qty }}</td>
+                        <td>{{ $item->price }}</td>
+                        <td>N/A. No info yet about what the total is for. Will update when given</td>
                         <td>
                             <button type="button" class="btn btn-warning mb-1">Edit</button>
                             <button type="button" class="btn btn-danger mb-1">Delete</button>

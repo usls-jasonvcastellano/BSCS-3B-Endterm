@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Inventory List</h2>
+    <h2>Inventory List ----- OLD. Don't know if I should have renamed or removed so I'm keeping it in for now</h2>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
         <thead class="thead-dark">
