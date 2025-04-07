@@ -17,4 +17,18 @@ class CategoriesController extends Controller
                     'categories' => $categories,
                    ]);
     }
+
+    public function create()
+    {
+        return view('categories.create');
+    }
+
+    public function store(Request $request)
+    {
+        Category::create([
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+        ]);
+        return redirect('/categories');
+    }
 }

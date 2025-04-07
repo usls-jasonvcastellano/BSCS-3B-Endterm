@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description'];
 
     // One Category can have many Items.
-    public function items()
+    public function Items()
     {
-         return $this->hasMany(Item::class);
+        return $this->hasMany(Item::class, 'item_id', 'id');
     }
+    
 }
