@@ -27,7 +27,7 @@
                         <td>{{ $item->item_name }}</td>
                         <td>{{ $item->qty }}</td>
                         <td>{{ $item->price }}</td>
-                        <td>N/A. No info yet about what the total is for. Will update when given</td>
+                        <td>{{ $item->qty * $item->price }}</td>
                         <td>
                             <button type="button" class="btn btn-warning mb-1">Edit</button>
                             <button type="button" class="btn btn-danger mb-1">Delete</button>
