@@ -28,7 +28,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>    
             <th>Category</th>
             <th>Description</th>
         </tr>
@@ -36,12 +35,11 @@
     <tbody>
         @foreach ($categories as $category)
         <tr>
-            <td>{{ $category->id }}</td>
             <td>{{$category->category_name}}</td>
             <td>{{$category->description}}</td>
             <td>
-                <!-- Edit Button Placeholder -->
-                <button class="btn btn-primary btn-sm" disabled>Edit</button>
+                <!-- Edit Button -->
+                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
                 <!-- Delete Button -->
                 <form action="/categories/{{ $category->id }}" method="POST" style="display:inline;">

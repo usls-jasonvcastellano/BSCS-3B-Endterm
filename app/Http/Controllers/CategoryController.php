@@ -37,4 +37,26 @@ class CategoryController extends Controller
         $category->delete(); // Delete category
         return redirect('/categories')->with('success', 'Category deleted');
     }
+
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        $category = Category::findOrFail($id);
+        $category->update([
+            'category_name' => $request->input('category_name'),
+            'description' => $request->input('description'),
+        ]);
+
+        return redirect('/categories')->with('success', 'Category updated!');
+    }
 }

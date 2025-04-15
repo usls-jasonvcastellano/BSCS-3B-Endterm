@@ -46,7 +46,8 @@
             <td>{{$item->qty}}</td>
             <td>${{ number_format($item->total, 2) }}</td> <!-- Using computed attribute -->
             <td>
-                <button class="btn btn-primary btn-sm" disabled>Edit</button>
+                <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+
                 <form action="/inventory/{{ $item->id }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
