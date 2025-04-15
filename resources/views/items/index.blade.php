@@ -38,6 +38,10 @@
                             <td>{{ $item->price }}</td>
                             <td>{{ $item->total }}</td>
                             <td>
+                                <!-- Edit Button -->
+                                <a href="/items/{{ $item->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+
+                                <!-- Delete Button -->
                                 <form action="/items/{{ $item->id }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')

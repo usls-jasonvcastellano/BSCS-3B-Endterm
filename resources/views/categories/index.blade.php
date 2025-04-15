@@ -34,8 +34,8 @@
                             <td>{{ $category->category_name }}</td>
                             <td>{{ $category->description }}</td>
                             <td>
-                                <!-- Edit Button Placeholder -->
-                                <button class="btn btn-primary btn-sm" disabled>Edit</button>
+                                <!-- Edit Button -->
+                                <a href="/categories/{{ $category->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
 
                                 <!-- Delete Button -->
                                 <form action="/categories/{{ $category->id }}" method="POST" style="display:inline;">
