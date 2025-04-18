@@ -31,4 +31,23 @@ class CategoriesController extends Controller
         ]);
         return redirect('/categories');
     }
+
+    // Edit form
+    public function show($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('categories.edit', compact('category'));
+    }
+
+    // Updating the category
+    public function update(Request $request, $id)
+    {
+        $category = Category::findOrFail($id); 
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->save(); 
+
+        return redirect('/categories')->with('success', 'Category updated successfully.');
+    }
 }

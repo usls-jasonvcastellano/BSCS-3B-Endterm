@@ -1,11 +1,11 @@
 @extends('template.main')
 
-@section('title','Create Category')
+@section('title','Create Category]]')
 
 @section('content')
     <form action="/categories" method="POST">
         @csrf
-        <div class="container">
+          <div class="container">
             <div class="row mt-3">
                 <div class="col-6 col-sm-6 col-md-8 col-lg-10 col-xl-12">
                     <div class="input-group mb-3">

@@ -29,7 +29,7 @@
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->price * $item->qty}}</td>
                     <td>
-                        <button type = "button" class = "btn btn-info btn-sm">Edit</button>
+                        <a href="{{ url('/items/' . $item->id . '/edit') }}" class="btn btn-info btn-sm">Update</a>
                         <button type = "button" class = "btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>

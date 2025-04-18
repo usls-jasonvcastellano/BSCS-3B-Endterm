@@ -37,4 +37,26 @@ class ItemsController extends Controller
         ]);
         return redirect('/items');
     }
+    
+    // Edit form
+    public function show($id)
+    {
+        $item = Item::findOrFail($id);
+        $categories = Category::all();
+        return view('items.edit', compact('item', 'categories'));
+    }
+
+    // Updating the item
+    public function update(Request $request, $id)
+    {
+        $item = Item::findOrFail($id); 
+ 
+        $item->category_id = $request->category_id;
+        $item->name = $request->name;
+        $item->qty = $request->qty;
+        $item->price = $request->price;
+        $item->save(); 
+
+        return redirect('/items')->with('success', 'Items updated successfully.');
+    }
 }

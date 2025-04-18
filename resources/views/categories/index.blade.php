@@ -25,7 +25,7 @@
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->description }}</td>
                     <td>
-                        <button type = "button" class = "btn btn-info mb-1">Edit</button>
+                         <a href="{{ url('/categories/' . $category->id . '/edit') }}" class="btn btn-info mb-1">Update</a>
                         <button type = "button" class = "btn btn-danger mb-1">Delete</button>
                     </td>
                 </tr>
