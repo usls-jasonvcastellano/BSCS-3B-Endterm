@@ -35,4 +35,32 @@ class ItemController extends Controller
         ]);
         return redirect('/items')->with('success', 'Item created successfully!');;
     }
+
+    public function show($id)
+    {
+        $item = Item::findOrFail($id);
+        $categories = Category::all();
+        return view('items.edit', compact('item', 'categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'category_id' => '',
+            'item_name' => 'required|string|max:255',
+            'qty' => 'nullable|string|max:255',
+            'price' => 'required|decimal:2',
+        ]);
+
+        $item = Item::findOrFail($id);
+
+        $item->update([
+        'category_id' => $request->category_id,
+        'item_name' => $request->item_name,
+        'qty' => $request->qty,
+        'price' => $request->price,
+        ]);
+
+        return redirect('/items')->with('success', 'Item updated successfully!');
+    }
 }

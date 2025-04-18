@@ -29,7 +29,7 @@
                         <td>{{ $item->price }}</td>
                         <td>{{ $item->qty * $item->price }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning mb-1">Edit</button>
+                            <a href="/items/{{ $item->id }}/edit" class="btn btn-warning mb-1">Update</a>
                             <button type="button" class="btn btn-danger mb-1">Delete</button>
                         </td>
                     </tr>

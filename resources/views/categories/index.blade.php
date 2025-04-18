@@ -25,8 +25,8 @@
                         <td>{{ $category->category_name }}</td>
                         <td>{{ $category->description }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning mb-1">Edit</button>
-                            <button type="button" class="btn btn-danger mb-1">Delete</button>
+                            <a href="/categories/{{ $category->id }}/edit" class="btn btn-warning mb-1">Update</a>
+                            <a href="" class="btn btn-danger mb-1">Delete</button>
                         </td>
                     </tr>
                 @endforeach

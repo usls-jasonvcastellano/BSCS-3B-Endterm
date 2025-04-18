@@ -31,4 +31,27 @@ class CategoryController extends Controller
      ]);
      return redirect('/categories')->with('success', 'Category created successfully!');
     }
+
+    public function show($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->update([
+        'category_name' => $request->category_name,
+        'description' => $request->description,
+        ]);
+
+        return redirect('/categories')->with('success', 'Category updated successfully!');
+    }
 }
