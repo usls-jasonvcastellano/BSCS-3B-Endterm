@@ -2,9 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get("/", "App\Http\Controllers\LoginController@index");
+Route::get("/login", "App\Http\Controllers\LoginController@index");
+Route::post("/login", "App\Http\Controllers\LoginController@login");
+
+
+Route::get("/categories", "App\Http\Controllers\CategoryController@index");
 
 Route::get("/categories", "App\Http\Controllers\CategoryController@index");
 Route::get("/categories/create", "App\Http\Controllers\CategoryController@create");
